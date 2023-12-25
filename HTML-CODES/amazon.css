@@ -1,0 +1,45 @@
+.product {
+  position: absolute;
+  top: 112px;
+  left: 10%;
+  right: 5%;
+  z-index: -1;
+}
+.img-6 {
+  width: 1500px;
+  height: 650px;
+}
+.box1-2 {
+  display: flex;
+  position: absolute;
+  background-color: white;
+  left: 600px;
+  top: 404px;
+  z-index: 0;
+  flex-direction: column;
+  padding-bottom: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 18px;
+}
+.primary {
+  display: flex;
+  flex-direction: row;
+}
+.secondary {
+  display: grid;
+  place-items: center;
+}
+.box1-1 {
+  display: flex;
+  position: absolute;
+  background-color: white;
+  left: 220px;
+  top: 404px;
+  z-index: 0;
+  flex-direction: column;
+  padding-bottom: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 18px;
+}

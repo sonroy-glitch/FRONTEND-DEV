@@ -1,0 +1,27 @@
+.main{
+    display: flex;
+
+}
+.sidebar{
+   display: flex;
+    width: 72px;
+    flex-direction: column;
+    background-color: white;
+   
+}
+
+.part1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.img-1{
+    height: 24px;
+    margin-bottom: 0%;
+    margin-top: 20px;
+}
+.text-1{
+margin-top: 5px;
+font-size: 11px;
+}

@@ -1,0 +1,63 @@
+button
+.class:hover{}--when you huver over a button
+.class:active{}--when you click over a button
+opacity--fading a button
+{transition within main styling ans timing should be 0.15 s
+transition takes value of two quality and time of fading;
+for two things within transition just give a comma and specify their respective avlues.
+}
+box-shadow 0 0 0 black;
+padding--to create a gap within a button(basically you can mess with anything with the text)
+vertical-align:top;---aligns all boxes along the top
+*****text element(<span class="">) are used to modify a certain length of text within paragraph 
+ void element are those which doesnt need a closing tag......<link>--links anotherf css file to html file\
+ ****<link rel="stylesheet" href="address of the file" >
+ object-fit:cover ---- helps to cover a image properly within the designated space
+ object-position----- which part of the imag eyou wnat  to see within the fitted box
+ 
+ textbox------------
+ input takes input in form of text or checkbok(<input type="text" placeholder="name">)
+ 
+ 
+ for grid------
+ <div style="display:grid;">
+     <div></div>
+ </div>
+ for grid-template-colums:100px 100px;----for number and size of colums
+ use fr instead of px as it divides the screen to eual size of columns
+ column-gap/row-gap---to create gap between div element
+
+ flexbox---------
+ <div style="display:flex;
+ flex-direction:row;" >
+ in case of flex use flex property instead of fr
+
+
+ width:0;---allows a serach bar to shrink more than its system integrated size
+ flex-shrink:0;---flex property that does not allow flex property to shrink
+ 
+
+
+ css position
+ in case of position fixed add padding to scrollable elements to prevent sticking
+ position:absolute;---it is fixed to a particluar ergion in page rather than scrollable window
+ z-index:takes any numerical value;---defined for any element --determines which things come on top of which
+ absolute over fixed element
+ to have absolute over scrollable element use position:relative; on the scrollable element
+
+***********************************************************************
+ tooltip---
+ .button.tooltip{
+    ------
+    opacity:0;
+    pointer-events:none;----does not show the tooltip when hovering over the tooltip itself
+
+ }
+ .button:hover.tooltip{
+    opacity:1;
+ }
+
+
+
+ ***************************
+ <... title="">..</>-------hovers the provided title in the colons

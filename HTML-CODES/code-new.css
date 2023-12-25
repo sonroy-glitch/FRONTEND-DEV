@@ -1,0 +1,14 @@
+.pre-main {
+  display: grid;
+  grid-template-columns: 150px 150px;
+  column-gap: 5px;
+}
+.main {
+  display: grid;
+  grid-template-rows: 100px 200px;
+  border: 2px solid black;
+}
+.secondary-2 {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+}

@@ -1,0 +1,42 @@
+.tot-container{
+    display: flex;
+    flex-direction: column;
+}
+.video-part{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap:21px;
+    column-gap: 16px;
+    background-color:rgb(60, 48, 48);
+}
+ /* .video{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    width:289px ;
+    height:89px;
+    row-gap: 4px;
+    column-gap: 4px; 
+
+} */
+.video-image{
+    width: 100%;
+   
+
+    
+}
+.channel-img{
+    border-radius: 50%;
+    width:40px;
+    margin-top: 7px;
+}
+.data{
+    display: grid;
+    grid-template-columns: 50px 1fr;
+}
+.info{
+    /* display: grid; */
+    margin-left:5px;
+    margin-right: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
