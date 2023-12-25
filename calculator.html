@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <button
+      onclick="
+   
+    calculation+='1';
+    console.log(calculation);
+    "
+    >
+      1
+    </button>
+    <button
+      onclick="
+    
+    calculation+='2';
+    console.log(calculation);
+    "
+    >
+      2
+    </button>
+    <button
+      onclick="
+    
+    calculation+='+';
+    console.log(calculation);
+    "
+    >
+      +
+    </button>
+    <button
+      onclick="
+    var c=eval(calculation);
+    console.log(eval(calculation));
+    var d= {
+        calculation,
+        evalualtion:c
+    }
+    console.log(d);
+    localStorage.setItem('lastcalculation',JSON.stringify(d));
+    
+    "
+    >
+      =
+    </button>
+    <button
+      onclick="
+    calculation='';
+    c='';
+    console.log('The data has been cleared');
+    localStorage.removeItem('lastcalculation');
+    "
+    >
+      CLEAR
+    </button>
+    <script>
+      var d;
+      var e = JSON.parse(localStorage.getItem("lastcalculation"));
+      console.log(e);
+      if (e === null) {
+        console.log("The previous calculation has been cleared");
+      }
+      var c;
+      var calculation = "";
+    </script>
+  </body>
+</html>
