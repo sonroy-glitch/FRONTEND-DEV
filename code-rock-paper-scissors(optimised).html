@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <p>Rock Paper Scissors Game</p>
+    <button
+      onclick="
+    userinput='rock'
+    var a= randomGenerator();
+    check(a);
+    "
+    >
+      Rock
+    </button>
+    <button
+      onclick="
+    userinput='paper'
+    var a= randomGenerator();
+    check(a);
+    "
+    >
+      Paper
+    </button>
+    <button
+      onclick="
+    userinput='scissors'
+    var a= randomGenerator();
+    check(a);
+    "
+    >
+      Scissors
+    </button>
+    <button
+      onclick="
+      score.wins = 0;
+        score.losses = 0;
+        score.ties = 0;
+        localStorage.removeItem('score');
+    "
+    >
+      Reset Score
+    </button>
+    <button onclick="console.log(score);">Show score</button>
+    <script>
+      // console.log(localStorage.getItem("scores"));
+      let score = {
+        wins: 0,
+        losses: 0,
+        ties: 0,
+      };
+
+      score = JSON.parse(localStorage.getItem("score"));
+      if ("score" === null) {
+        score = {
+          wins: 0,
+          losses: 0,
+          ties: 0,
+        };
+      }
+
+      console.log(localStorage.getItem("score"));
+      // if ("score" === null) {
+      //   score.wins = 0;
+      //   score.lose = 0;
+      //   score.tie = 0;
+      // }
+
+      function randomGenerator() {
+        var a = Math.random();
+        if (a > 0 && a < 1 / 3) {
+          return "rock";
+        } else if (a > 1 / 3 && a < 2 / 3) {
+          return "paper";
+        } else {
+          return "scissors";
+        }
+      }
+      var userinput;
+      function check(a) {
+        if (userinput === a) {
+          score.ties++;
+
+          alert(
+            `You chose ${userinput}.Computer chose ${a}.Tie.\n Wins: ${score.wins} , Lose: ${score.losses}, Ties: ${score.ties}`
+          );
+        } else if (
+          (userinput === "rock" && a === "paper") ||
+          (userinput === "paper" && a === "scissors") ||
+          (userinput === "scissors" && a === "rock")
+        ) {
+          score.losses++;
+
+          alert(
+            `You chose ${userinput}.Computer chose ${a}.You lose.\nWins: ${score.wins} , Lose: ${score.losses}, Ties: ${score.ties}`
+          );
+        } else {
+          score.wins++;
+
+          alert(
+            `You chose ${userinput}.Computer chose ${a}.You Win.\n Wins: ${score.wins} , Lose: ${score.losses}, Ties: ${score.ties}`
+          );
+        }
+        localStorage.setItem("score", JSON.stringify(score));
+      }
+    </script>
+  </body>
+</html>
