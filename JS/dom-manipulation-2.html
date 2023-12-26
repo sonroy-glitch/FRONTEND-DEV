@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <p>ROCK PAPER SCISSORS</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <input
+      type="text"
+      placeholder="Cost of order"
+      class="holder"
+      onkeydown="
+    var holderValue = document.querySelector('.holder').value;
+    var b= event.key;
+    if(b=='Enter'){
+        calculate(holderValue);
+    }
+    "
+    />
+    <button
+      onclick=" var holderValue = document.querySelector('.holder').value;
+      calculate(holderValue);"
+    >
+      Calculate
+    </button>
+    <p class="result"></p>
+
+    <script>
+      var cost = 0;
+
+      function calculate(holderValue) {
+        var output = document.querySelector(".result");
+        if (holderValue < 40) {
+          var cost = (holderValue * 100 + 1000) / 100;
+          output.innerHTML = `Cost: $${cost}`;
+        } else {
+          var cost = (holderValue * 100) / 100;
+          output.innerHTML = `Cost: $${cost}`;
+        }
+      }
+    </script>
+  </body>
+</html>

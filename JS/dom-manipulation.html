@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .subs-button {
+        background-color: black;
+        color: white;
+        padding: 10px 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Youtube Subscribe Button</p>
+    <button
+      onclick="
+     var buttonElem= document.querySelector('.subs-button');
+      // var buttonElem = document.querySelector('.subs-button').innerHTML;
+     if (buttonElem.innerText ==='Subscribe'){
+      buttonElem.innerHTML = 'Subscribed';
+       }
+     else{
+      buttonElem.innerHTML = 'Subscribe';
+     }
+    "
+      class="subs-button"
+    >
+      Subscribe
+    </button>
+    <script></script>
+  </body>
+</html>
