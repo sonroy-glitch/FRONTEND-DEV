@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <input
+      type="text"
+      placeholder="Testing a property"
+      class="holder"
+      onkeyup="
+var inputData = document.querySelector('.holder').value;
+document.querySelector('.output').innerHTML= inputData;
+"
+    />
+    <p class="output"></p>
+  </body>
+</html>

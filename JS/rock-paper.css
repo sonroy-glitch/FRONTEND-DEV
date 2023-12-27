@@ -1,0 +1,17 @@
+.header-tag {
+  /* color: white; */
+  font-size: 65px;
+  font-weight: bold;
+}
+.emoji {
+  height: 170px;
+  background-color: black;
+  border-radius: 50%;
+  border: 5px solid white;
+  padding: 50px;
+  margin-left: 25px;
+}
+.img {
+  background-color: black;
+  height: 60px;
+}
