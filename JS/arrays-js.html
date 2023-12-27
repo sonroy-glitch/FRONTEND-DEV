@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <p>Todo List</p>
+    <input type="text" placeholder="Todo name" class="inputData" />
+    <button
+      onclick="
+    add();
+    display();
+    
+    var reset = document.querySelector('.inputData');
+    reset.value='';
+    "
+    >
+      Add
+    </button>
+    <p class="output"></p>
+    <script>
+      var array = [];
+      var a;
+
+      function add() {
+        var input = document.querySelector(".inputData").value;
+        array.push(input);
+
+        console.log(array);
+      }
+      function display() {
+        a = array.length;
+        var total = "";
+        for (let i = 0; i < a; i++) {
+          var result = `<p>${array[i]}</p>\n`;
+          total += result;
+
+          //   console.log(`${array[i]}\n`);
+        }
+        var result = document.querySelector(".output");
+        result.innerHTML = total;
+      }
+    </script>
+  </body>
+</html>

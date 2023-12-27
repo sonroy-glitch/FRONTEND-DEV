@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <p>Todo List</p>
+    <input type="text" placeholder="Todo name" class="inputData" />
+    <input type="date" class="date" />
+    <button
+      onclick="
+    add();
+    display();
+   
+    var reset = document.querySelector('.inputData');
+    reset.value='';
+    "
+    >
+      Add
+    </button>
+
+    <p class="output"></p>
+    <script>
+      var array = [];
+      var array1 = [];
+      var a;
+      var b;
+      var i = "";
+
+      function add() {
+        var input = document.querySelector(".inputData").value;
+        var date = document.querySelector(".date").value;
+        array.push(input);
+        array1.push(date);
+
+        console.log(array);
+      }
+
+      function display() {
+        a = array.length;
+        var total = "";
+
+        for (let i = 0; i < a; i++) {
+          var result = `<div>
+              <p >${array[i]}    ${array1[i]}</p> <button class="delete-button"onclick="
+    array.splice(i,1);array1.splice(i,1);display();
+    " >Delete</button>
+              </div>\n`;
+
+          //   console.log(array[b]);
+          //   document
+          //     .querySelector(".delete-button")
+          //     .addEventListener("click", function func(b) {
+          //       array.splice(b, 2);
+          //     });
+
+          total += result;
+
+          //   console.log(`${array[i]}\n`);
+        }
+        view(total);
+      }
+      function view(total) {
+        var result = document.querySelector(".output");
+        result.innerHTML = total;
+      }
+    </script>
+  </body>
+</html>
