@@ -23,9 +23,9 @@
     <script>
       var array = [];
       var array1 = [];
+      var arrayfinal = [];
       var a;
       var b;
-      var i = "";
 
       function add() {
         var input = document.querySelector(".inputData").value;
@@ -41,26 +41,16 @@
         var total = "";
 
         for (let i = 0; i < a; i++) {
-          var result = `<div>
-              <p >${array[i]}    ${array1[i]}</p> <button class="delete-button"onclick="
-
-              
-     array.splice(${i},1);array1.splice(${i},1);display();
-    " >Delete</button>
+          arrayfinal[i] = `<div>${array[i]}    ${array1[i]} 
+            <button class="delete-button"onclick="
+            array.splice(${i},1);array1.splice(${i},1);display();
+            " >Delete</button>
               </div>\n`;
 
-          //   console.log(array[b]);
-          //   document
-          //     .querySelector(".delete-button")
-          //     .addEventListener("click", function func(b) {
-          //       array.splice(b, 2);
-          //     });
-
-          total += result;
-
-          //   console.log(`${array[i]}\n`);
+          total += arrayfinal[i];
         }
         view(total);
+        console.log(arrayfinal);
       }
       function view(total) {
         var result = document.querySelector(".output");
