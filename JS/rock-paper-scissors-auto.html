@@ -54,6 +54,16 @@
     >
       Reset Score
     </button>
+    <button
+      onclick="
+   
+      autoplay();
+    
+    "
+      class="Autoplay"
+    >
+      Autoplay
+    </button>
     <script>
       var image;
       var score = {
@@ -72,6 +82,13 @@
       var scores = document.querySelector(".scoreInGame");
       scores.innerHTML = `Wins--${score.wins} Loss--${score.losses} Tie--${score.ties}`;
 
+      function randomgenerator1() {
+        var random = Math.random();
+        if (random > 0 && random < 1 / 3) return "rock";
+        else if (random > 1 / 3 && random < 2 / 3) return "paper";
+        else return "scissors";
+      }
+
       function randomgenerator() {
         var random = Math.random();
         console.log(random);
@@ -86,7 +103,7 @@
           element1.innerHTML = "TIE";
           score.ties++;
           var element2 = document.querySelector(".picked-choice");
-          element2.innerHTML = `You -- 
+          element2.innerHTML = `You --
           <img src="pics/${userchoice}-emoji.png" class="img" />
           --- Computer -- <img src="pics/${computerchoice}-emoji.png" class="img" />`;
         } else if (
@@ -98,7 +115,7 @@
           element1.innerHTML = "You Lose";
           score.losses++;
           var element2 = document.querySelector(".picked-choice");
-          element2.innerHTML = `You -- 
+          element2.innerHTML = `You --
           <img src="pics/${userchoice}-emoji.png" class="img" />
           --- Computer -- <img src="pics/${computerchoice}-emoji.png" class="img" />`;
         } else {
@@ -106,12 +123,29 @@
           element1.innerHTML = "You Win";
           score.wins++;
           var element2 = document.querySelector(".picked-choice");
-          element2.innerHTML = `You -- 
+          element2.innerHTML = `You --
           <img src="pics/${userchoice}-emoji.png" class="img" />
           --- Computer -- <img src="pics/${computerchoice}-emoji.png" class="img" />`;
         }
         localStorage.setItem("scores", JSON.stringify(score));
         scores.innerHTML = `Wins--${score.wins} Loss--${score.losses} Tie--${score.ties}`;
+      }
+      let intervalid;
+      function autoplay() {
+        var autoplay = document.querySelector(".Autoplay");
+        if (autoplay.innerHTML === "Autoplay") {
+          autoplay.innerHTML = "Stop Autoplay";
+          intervalid = setInterval(function () {
+            randomgenerator();
+            randomgenerator1();
+            var userchoice = randomgenerator1();
+            var computerchoice = randomgenerator();
+            check(userchoice, computerchoice);
+          }, 1000);
+        } else {
+          autoplay.innerHTML = "Autoplay";
+          clearInterval(intervalid);
+        }
       }
     </script>
   </body>

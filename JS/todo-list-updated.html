@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <p>Todo List</p>
+    <input type="text" placeholder="Todo name" class="inputData" />
+    <input type="date" class="date" />
+    <button
+      onclick="
+    add();
+    display();
+   
+    var reset = document.querySelector('.inputData');
+    reset.value='';
+    var reset1 = document.querySelector('.date');
+    reset1.value='';
+    "
+    >
+      Add
+    </button>
+
+    <p class="output"></p>
+    <script>
+      var array = [];
+      var array1 = [];
+
+      var a;
+      var b;
+
+      function add() {
+        var input = document.querySelector(".inputData").value;
+        var date = document.querySelector(".date").value;
+        array.push(input);
+        array1.push(date);
+
+        console.log(array);
+      }
+
+      function display() {
+        a = array.length;
+        var total = "";
+
+        array.forEach(function (value, index) {
+          var save = `<div>${array[index]}    ${array1[index]} 
+            <button class="delete-button"onclick="
+            array.splice(${index},1);array1.splice(${index},1);display();
+            " >Delete</button>
+              </div>\n`;
+
+          total += save;
+        });
+        view(total);
+      }
+
+      function view(total) {
+        var result = document.querySelector(".output");
+        result.innerHTML = total;
+      }
+    </script>
+  </body>
+</html>
