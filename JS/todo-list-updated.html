@@ -21,6 +21,7 @@
 
     <p class="output"></p>
     <script>
+      document.title = "Todo List";
       var array = [];
       var array1 = [];
 
@@ -41,7 +42,7 @@
         var total = "";
 
         array.forEach(function (value, index) {
-          var save = `<div>${array[index]}    ${array1[index]} 
+          var save = `<div>${array[index]}    ${array1[index]}
             <button class="delete-button"onclick="
             array.splice(${index},1);array1.splice(${index},1);display();
             " >Delete</button>
