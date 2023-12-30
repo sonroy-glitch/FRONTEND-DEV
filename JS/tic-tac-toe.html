@@ -3,7 +3,7 @@
   <head>
     <link rel="stylesheet" href="tic-tac-toe.css" />
   </head>
-  <body>
+  <body style="background-color: black">
     <div>
       <button
         onclick="
@@ -101,7 +101,7 @@
       var user2;
       var data1;
       var data2;
-      var decide;
+      var decide = "";
       function userchoice(user1) {
         if (user1 === "circle") {
           data1 = "<img src='pics/circle.png' class='img'/>";
@@ -115,16 +115,21 @@
       }
 
       function game(user1, user2, buttonName) {
-        if (decide === true) {
-          var a = document.querySelector(`.${buttonName}`);
-          a.innerHTML = data1;
-          decide = false;
-          a.disabled = true;
+        if (decide === "") {
+          alert("Select an PLaying Move");
+          return;
         } else {
-          var a = document.querySelector(`.${buttonName}`);
-          a.innerHTML = data2;
-          decide = true;
-          a.disabled = true;
+          if (decide === true) {
+            var a = document.querySelector(`.${buttonName}`);
+            a.innerHTML = data1;
+            decide = false;
+            a.disabled = true;
+          } else {
+            var a = document.querySelector(`.${buttonName}`);
+            a.innerHTML = data2;
+            decide = true;
+            a.disabled = true;
+          }
         }
       }
       function play() {}

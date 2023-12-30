@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <button
+      class="button"
+      onclick="
+     hours++;
+     display(hours, minutes);
+    "
+    >
+      hours
+    </button>
+    <button
+      class="button"
+      onclick="
+     auto();
+     
+    "
+    >
+      minutes
+    </button>
+    <button
+      class="button"
+      onclick="
+    
+    "
+    >
+      Start Countdown
+    </button>
+    <script>
+      //only clock is done. stopwatch and countswon are still left.
+      var hours = 0;
+      var minutes = 0;
+      var seconds = 0;
+      function auto() {
+        setInterval(() => {
+          var currentTime = new Date();
+          console.log(
+            currentTime.getHours() +
+              ":" +
+              currentTime.getMinutes() +
+              ":" +
+              currentTime.getSeconds()
+          );
+        }, 1010);
+      }
+      //   console.log(currentTime.setTime(0));
+    </script>
+  </body>
+</html>
