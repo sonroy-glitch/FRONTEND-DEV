@@ -1,0 +1,3 @@
+var a = document.querySelector(".butt-1");
+          a.innerHTML = data1;
+          return;

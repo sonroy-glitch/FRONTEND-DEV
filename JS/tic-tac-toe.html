@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="tic-tac-toe.css" />
+  </head>
+  <body>
+    <div>
+      <button
+        onclick="
+       save1= document.querySelector('.circle');
+       user1='circle';
+       userchoice(user1);
+       
+      "
+        class="circle"
+      >
+        <img src="pics/circle.png" class="img" />
+      </button>
+      <button
+        class="cross"
+        onclick="
+       save2= document.querySelector('.cross');
+      
+       user1= 'cross';
+       userchoice(user1);
+      
+      
+      "
+      >
+        <img src="pics/cross.webp" class="img" />
+      </button>
+    </div>
+    <div class="main">
+      <div class="rows">
+        <button
+          onclick="
+        game(user1,user2,'button1');
+        "
+          class="button1"
+        ></button>
+        <button
+          onclick="
+        game(user1,user2,'button2');
+        "
+          class="button2"
+        ></button>
+        <button
+          onclick="
+        game(user1,user2,'button3');
+        "
+          class="button3"
+        ></button>
+      </div>
+      <div class="rows">
+        <button
+          onclick="
+        game(user1,user2,'button4');
+        "
+          class="button4"
+        ></button>
+        <button
+          onclick="
+        game(user1,user2,'button5');
+        "
+          class="button5"
+        ></button>
+        <button
+          onclick="
+        game(user1,user2,'button6');
+        "
+          class="button6"
+        ></button>
+      </div>
+      <div class="rows">
+        <button
+          onclick="
+        game(user1,user2,'button7');
+        "
+          class="button7"
+        ></button>
+        <button
+          onclick="
+        game(user1,user2,'button8');
+        "
+          class="button8"
+        ></button>
+        <button
+          onclick="
+        game(user1,user2,'button9');
+        "
+          class="button9"
+        ></button>
+      </div>
+    </div>
+
+    <script>
+      var save1;
+      var save2;
+      var user1;
+      var user2;
+      var data1;
+      var data2;
+      var decide;
+      function userchoice(user1) {
+        if (user1 === "circle") {
+          data1 = "<img src='pics/circle.png' class='img'/>";
+          data2 = "<img src='pics/cross.webp' class='img'/>";
+          decide = true;
+        } else {
+          data2 = "<img src='pics/circle.png' class='img'/>";
+          data1 = "<img src='pics/cross.webp' class='img'/>";
+          decide = false;
+        }
+      }
+
+      function game(data1, data2, buttonName) {
+        if (decide === true) {
+          var a = document.querySelector(`.${buttonName}`);
+          a.innerHTML = data1;
+          decide = false;
+        } else {
+          var a = document.querySelector(`.${buttonName}`);
+          a.innerHTML = data2;
+          decide = true;
+        }
+      }
+    </script>
+  </body>
+</html>
