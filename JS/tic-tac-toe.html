@@ -7,11 +7,9 @@
     <div>
       <button
         onclick="
-       save1= document.querySelector('.circle');
        user1='circle';
        userchoice(user1);
-       
-      "
+       "
         class="circle"
       >
         <img src="pics/circle.png" class="img" />
@@ -19,12 +17,8 @@
       <button
         class="cross"
         onclick="
-       save2= document.querySelector('.cross');
-      
        user1= 'cross';
        userchoice(user1);
-      
-      
       "
       >
         <img src="pics/cross.webp" class="img" />
@@ -34,19 +28,22 @@
       <div class="rows">
         <button
           onclick="
-        game(user1,user2,'button1');
+       game(user1,user2,'button1');
+        play();
         "
           class="button1"
         ></button>
         <button
           onclick="
         game(user1,user2,'button2');
+        play();
         "
           class="button2"
         ></button>
         <button
           onclick="
         game(user1,user2,'button3');
+        play();
         "
           class="button3"
         ></button>
@@ -55,18 +52,21 @@
         <button
           onclick="
         game(user1,user2,'button4');
+        play();
         "
           class="button4"
         ></button>
         <button
           onclick="
         game(user1,user2,'button5');
+        play();
         "
           class="button5"
         ></button>
         <button
           onclick="
         game(user1,user2,'button6');
+        play();
         "
           class="button6"
         ></button>
@@ -75,18 +75,21 @@
         <button
           onclick="
         game(user1,user2,'button7');
+        play();
         "
           class="button7"
         ></button>
         <button
           onclick="
         game(user1,user2,'button8');
+        play();
         "
           class="button8"
         ></button>
         <button
           onclick="
         game(user1,user2,'button9');
+        play();
         "
           class="button9"
         ></button>
@@ -94,8 +97,6 @@
     </div>
 
     <script>
-      var save1;
-      var save2;
       var user1;
       var user2;
       var data1;
@@ -113,17 +114,20 @@
         }
       }
 
-      function game(data1, data2, buttonName) {
+      function game(user1, user2, buttonName) {
         if (decide === true) {
           var a = document.querySelector(`.${buttonName}`);
           a.innerHTML = data1;
           decide = false;
+          a.disabled = true;
         } else {
           var a = document.querySelector(`.${buttonName}`);
           a.innerHTML = data2;
           decide = true;
+          a.disabled = true;
         }
       }
+      function play() {}
     </script>
   </body>
 </html>
