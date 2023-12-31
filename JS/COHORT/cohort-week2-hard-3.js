@@ -1,40 +1,38 @@
 function promisedelay1(n) {
   return new Promise(function (resolve) {
     setTimeout(() => {
-      resolve(console.log(`Promise resolved after ${n} seconds`));
+      resolve(console.log(`Promise1 resolved after ${n} seconds`));
     }, n * 1000);
   });
 }
 function promisedelay2(m) {
   return new Promise(function (resolve) {
     setTimeout(() => {
-      resolve(console.log(`Promise resolved after ${n} seconds`));
+      resolve(console.log(`Promise2 resolved after ${m} seconds`));
     }, m * 1000);
   });
 }
 function promisedelay3(o) {
   return new Promise(function (resolve) {
     setTimeout(() => {
-      resolve(console.log(`Promise resolved after ${n} seconds`));
+      resolve(console.log(`Promise3 resolved after ${o} seconds`));
     }, o * 1000);
   });
 }
 
-function call(a, b, c) {
+async function call(a, b, c) {
   const date1 = new Date();
   const before = date1.getTime();
+  console.log(before);
 
-  promisedelay1(a);
-  promisedelay2(b);
-  promisedelay3(c);
-  const after = date.getTime();
+  var x = await Promise.all([
+    promisedelay1(a),
+    promisedelay2(b),
+    promisedelay3(c),
+  ]);
   const date2 = new Date();
   const after = date2.getTime();
-  return new Promise(function (resolve) {
-    resolve(after - before);
-  });
+  console.log(after);
+  console.log(after - before);
 }
-function print(data) {
-  console.log(data);
-}
-call(1, 2, 3).then(print);
+call(0, 0, 0);
