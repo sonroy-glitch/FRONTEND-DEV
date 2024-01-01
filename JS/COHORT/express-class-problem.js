@@ -1,5 +1,5 @@
 const express = require("express");
-const app = express();
+var app = express();
 var users = [
   {
     name: "John",
@@ -21,39 +21,70 @@ var users = [
     ],
   },
 ];
-function indexCalc(s) {
-  var index = 0;
-  var name = s;
+var index;
+function indexCalc(name) {
   for (var i = 0; i < users.length; i++) {
-    if (name === users[i].name) {
+    if (users[i].name === name) {
       index = i;
     }
   }
   return index;
 }
 app.get("/", (req, res) => {
-  var index = indexCalc(req.query.s);
-  var count = users[index].kidneys.length;
-  //   for (var i = 0; i < 2; i++) {
-  //     if (users[index].kidneys[i].healthy === "") {
-  //       count--;
-  //     }
-  //   }
-
-  res.send(
-    `THE NUMBER OF KIDNEYS ARE ${count.toString()} and the status of their kidneys are ${JSON.stringify(
-      users[index].kidneys
-    )}`
+  var name = req.query.s;
+  var index = indexCalc(name);
+  var healthy = 0;
+  var unhealthy = 0;
+  for (var i = 0; i < users[index].kidneys.length; i++) {
+    if (users[index].kidneys[i].healthy === true) {
+      healthy++;
+    } else {
+      unhealthy++;
+    }
+  }
+  res.json(
+    `The user name is ${users[index].name} and the kidneys he have ${users[index].kidneys.length} out of which bad kidenys :${unhealthy} and healthy are :${healthy}`
   );
 });
+app.use(express.json());
 app.post("/", (req, res) => {
-  var index = indexCalc(req.body.s);
-  var health = indexCalc(req.body.health);
-  var count = users[index].kidneys.length;
-  if (users[index].kidneys.length < 2) {
-    users[index].kidneys.push({ healthy: health });
+  var newkidney = req.body.newkidney;
+  var name = req.body.name;
+  var index = indexCalc(name);
+  if (users[index].kidneys.length < 3) {
+    users[index].kidneys.push({ healthy: newkidney });
+    res.send("done");
+  } else {
+    res.send("You have reached the maximum number of kidneys.");
   }
-  res.send(JSON.stringify({ msg: "done" }));
 });
 
-app.listen(3001);
+app.put("/", (req, res) => {
+  for (var i = 0; i < users[index].kidneys.length; i++) {
+    if (users[index].kidneys[i].healthy == false) {
+      users[index].kidneys[i].healthy = true;
+      res.send("done");
+    } else {
+      res.send("NO UPdate req");
+    }
+  }
+});
+
+app.delete("/", (req, res) => {
+  let newarr = [];
+  for (var i = 0; i < users[index].kidneys.length; i++) {
+    if (users[index].kidneys.length != 0) {
+      if (users[index].kidneys[i].healthy != false) {
+        newarr.push(users[index].kidneys[i]);
+        users[index].kidneys = newarr;
+        res.send("done");
+      } else {
+        res.send("NO Bad kidney");
+      }
+    } else {
+      res.send("Just 1 kideny left mf");
+    }
+  }
+});
+
+app.listen(3000);

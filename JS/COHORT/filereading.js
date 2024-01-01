@@ -1,4 +1,4 @@
 const file = require("fs");
-file.readFile("a.txt", "utf-8", function (err, data) {
+file.readFile("./test/", "utf-8", function (err, data) {
   console.log(data);
 });
