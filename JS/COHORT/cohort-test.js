@@ -1,5 +1,2 @@
-setTimeout(() => {
-  console.log("hi");
-}, 3000).then(() => {
-  console.log("Promise Resolved");
-});
+var a = Math.random();
+console.log(parseInt(a * 1000));
