@@ -1,2 +1,9 @@
-var a = Math.random();
-console.log(parseInt(a * 1000));
+const express = require("express");
+const app = express();
+
+app.post("/", (req, res) => {
+  var a = req.headers.authentication;
+  console.log(a);
+  res.json(a);
+});
+app.listen(3005);
