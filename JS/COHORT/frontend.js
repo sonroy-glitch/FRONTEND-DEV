@@ -54,6 +54,23 @@ app.get("/verify", function (req, res) {
 });
 app.post("/add",(req,res)=>{
   var username=req.body.username;
-  i
+  var password=req.body.password;
+  var name=req.body.name;
+  var success=schema.safeParse(username);
+  if(success.success){
+    userData.push({
+        "username":username,
+        "password":password,
+        "name":name
+    })
+    res.send("Adding Done")
+  }
+  else{
+    res.status(505).send("")
+  }
+
+})
+app.get("/users",(req,res)=>{
+     res.status(200).send(JSON.stringify(userData))   
 })
 app.listen(3008);
