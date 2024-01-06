@@ -1,9 +1,6 @@
-const express = require("express");
-const app = express();
+const zod = require("zod");
+var email = "abcd@gmail.com";
+const schema = zod.string().email();
 
-app.post("/", (req, res) => {
-  var a = req.headers.authentication; //gets authentication header data
-  console.log(a);
-  res.json(a);
-});
-app.listen(3005);
+var check = schema.safeParse(email);
+console.log(check);
