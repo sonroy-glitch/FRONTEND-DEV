@@ -3,6 +3,8 @@ const app = express();
 const zod = require("zod");
 const db = require("mongoose");
 const jwt = require("jsonwebtoken");
+const jwtPasscode = "secret";
+var token;
 
 const usernameSchema = zod.string().email();
 const passwordSchema = zod.string().min(8);
@@ -56,7 +58,7 @@ function checkMiddlewareAdmin(req, res, next) {
 function checkMiddlewareUser(req, res, next) {
   var username = req.headers.username;
   var password = req.headers.password;
-
+  var token = req.headers.authentication;
   const check = usernameSchema.safeParse(username);
   const check1 = passwordSchema.safeParse(password);
   if (!(check.success && check1.success)) {
@@ -73,7 +75,12 @@ function checkMiddlewareUser(req, res, next) {
     if (result == null) {
       res.status(300).send("You do not exist in database");
     } else {
-      next();
+      try {
+        var check2 = jwt.verify(token, jwtPasscode);
+        next();
+      } catch (err) {
+        res.status(505).send("Wrong token sent");
+      }
     }
   }
 }
@@ -126,7 +133,27 @@ app.post("/users/signup", (req, res) => {
     res.status(200).send("user signup successful");
   }
 });
+app.post("/admin/signin", checkMiddlewareAdmin, (req, res) => {
+  var username = req.headers.username;
 
+  try {
+    token = jwt.sign({ username: username }, jwtPasscode);
+
+    res.send("User signin successfull");
+  } catch (err) {
+    res.status(505).send("Something is up with the server");
+  }
+});
+app.post("/users/signin", (req, res) => {
+  var username = req.headers.username;
+  try {
+    token = jwt.sign({ username: username }, jwtPasscode);
+
+    res.send("User signin successfull");
+  } catch (err) {
+    res.status(505).send("Something is up with the server");
+  }
+});
 app.post("/admin/courses", checkMiddlewareAdmin, (req, res) => {
   var title = req.body.title;
   var description = req.body.description;
